@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react"; // import state
+import { Link } from "react-router-dom";
 
 import "./Header.css";
 function Header(props) {
@@ -62,7 +63,7 @@ function Header(props) {
                   <a href="/contact">Book Session</a>
                 </li>
                 <li className="border-b border-gray-400 my-8 uppercase">
-                  <a href="/contact">Log In</a>
+                  <Link to="/login">Log In</Link>
                 </li>
               </ul>
             </div>
@@ -74,7 +75,9 @@ function Header(props) {
             <div>Family</div>
             <div>Bio</div>
             <div>Book Session</div>
-            <div>Log In</div>
+            <div>
+              <Link to="/login">Log In</Link>
+            </div>
           </div>
         </div>
       </div>
