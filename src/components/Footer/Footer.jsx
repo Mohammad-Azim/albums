@@ -4,7 +4,7 @@ import "font-awesome/css/font-awesome.min.css";
 function Footer(props) {
   return (
     <>
-      <footer className="absolute bottom-0 bg-opacity-30 p-5 bg-gray-100 w-full	flex justify-center ">
+      <footer className="fixed bottom-0 bg-opacity-30 p-5 bg-gray-100 w-full	flex justify-center ">
         <div>
           <div className="flex justify-between p-1">
             <span>
