@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import "./Header.css";
 function Header(props) {
   const [isNavOpen, setIsNavOpen] = useState(false); // initiate isNavOpen state with false
-
+  const userName = localStorage.getItem("userEmail");
   return (
     <>
       <div className="navBG p-6">
@@ -63,7 +63,7 @@ function Header(props) {
                   <a href="/contact">Book Session</a>
                 </li>
                 <li className="border-b border-gray-400 my-8 uppercase">
-                  <Link to="/login">Log In</Link>
+                  {!userName ? <Link to="/login">Log In</Link> : userName}
                 </li>
               </ul>
             </div>
@@ -75,9 +75,7 @@ function Header(props) {
             <div>Family</div>
             <div>Bio</div>
             <div>Book Session</div>
-            <div>
-              <Link to="/login">Log In</Link>
-            </div>
+            <div>{!userName ? <Link to="/login">Log In</Link> : userName}</div>
           </div>
         </div>
       </div>
