@@ -1,5 +1,4 @@
-import React, { createContext, useState, useContext } from "react";
-import Login from "../../pages/Login/Login";
+import React, { useState, useContext } from "react";
 
 const LoginContext = React.createContext();
 const LoginUpdateContext = React.createContext();
@@ -16,7 +15,7 @@ export function LoginProvider({ children }) {
   const [IsLogedIn, setIsLogedIn] = useState(false);
 
   function toggleLogin(action) {
-    if (action == "LOGIN") {
+    if (action === "LOGIN") {
       setIsLogedIn(true);
     } else {
       setIsLogedIn(false);

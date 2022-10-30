@@ -33,7 +33,7 @@ function Body(props) {
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
-  }, []);
+  });
 
   useEffect(() => {
     setImage(data.slice(0, 12));

@@ -1,8 +1,8 @@
 import { render, screen } from "@testing-library/react";
-import App from "./App";
+import Body from "./Body";
 
 test("renders learn react link", () => {
-  render(<App />);
+  render(<Body />);
   const linkElement = true;
   expect(linkElement).toBe(true);
 });
