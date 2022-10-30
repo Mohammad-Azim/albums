@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export default function MobileMenu(props) {
   return (
-    <section className=" flex lg:hidden justify-end ">
+    <section data-testid="MobileMenu" className=" flex lg:hidden justify-end ">
       <div
         className="HAMBURGER-ICON space-y-2"
         onClick={() => props.setIsNavOpen((prev) => !prev)} // toggle isNavOpen state on click
@@ -34,19 +34,29 @@ export default function MobileMenu(props) {
         </div>
         <ul className="MENU-LINK-MOBILE-OPEN flex flex-col items-center justify-between min-h-[250px]">
           <li className="border-b border-gray-400 my-8 uppercase">
-            <a href="/about">Pregnancy</a>
+            <a role="mobileChoises" href="/about">
+              Pregnancy
+            </a>
           </li>
           <li className="border-b border-gray-400 my-8 uppercase">
-            <a href="/portfolio">Babies</a>
+            <a role="mobileChoises" href="/portfolio">
+              Babies
+            </a>
           </li>
           <li className="border-b border-gray-400 my-8 uppercase">
-            <a href="/contact">Family</a>
+            <a role="mobileChoises" href="/contact">
+              Family
+            </a>
           </li>
           <li className="border-b border-gray-400 my-8 uppercase">
-            <a href="/contact">Bio</a>
+            <a role="mobileChoises" href="/contact">
+              Bio
+            </a>
           </li>
           <li className="border-b border-gray-400 my-8 uppercase">
-            <a href="/contact">Book Session</a>
+            <a role="mobileChoises" href="/contact">
+              Book Session
+            </a>
           </li>
           <li className="border-b border-gray-400 my-8 uppercase">
             {!props.userName ? <Link to="/login">Log In</Link> : props.userName}

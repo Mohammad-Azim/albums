@@ -4,8 +4,8 @@ import Footer from "../Footer";
 describe(Footer, () => {
   it("display the footer fixed (footer have fixed class)", () => {
     render(<Footer />);
-    const footerVal = screen.getByTestId("footer").classList.contains("fixed");
-    expect(footerVal).toEqual(true);
+    const footerVal = screen.getByTestId("footer").classList;
+    expect(footerVal).toContain("fixed");
   });
 
   it("display the footer icnos)", () => {
