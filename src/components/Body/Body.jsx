@@ -1,8 +1,10 @@
 import React from "react";
 import { suspend } from "suspend-react";
 import { useEffect, useState } from "react";
+import { makeStyles, Grid } from "@mui/material";
+import { Box } from "@mui/system";
 
-function Body(props) {
+function Body() {
   let currentOffset = 12;
   const [image, setImage] = useState([]);
 
@@ -41,15 +43,19 @@ function Body(props) {
 
   return (
     <>
-      <div className="mt-9 mb-24">
-        <div className="flex md:flex-col-3 flex-wrap sm:flex-col-2 flex-col-1">
+      <Box sx={{ mt: 6, mb: 24 }}>
+        <Grid
+          container
+          spacing={{ xs: 1, md: 2 }}
+          columns={{ xs: 4, sm: 8, md: 12 }}
+        >
           {image.map((post) => (
-            <div key={post.id} className="shrink md:w-1/3 sm:w-1/2 w-full p-1">
+            <Grid item xs={4} key={post.id}>
               <img src={post.url} className="" alt="Logo" />
-            </div>
+            </Grid>
           ))}
-        </div>
-      </div>
+        </Grid>
+      </Box>
     </>
   );
 }
