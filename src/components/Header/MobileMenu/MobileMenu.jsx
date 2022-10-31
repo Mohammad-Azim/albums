@@ -78,12 +78,6 @@ export default function MobileMenu(props) {
           </ListItem>
 
           <ListItem disablePadding>
-            <ListItemButton>
-              <ListItemText align="center" primary="Bio" />
-            </ListItemButton>
-          </ListItem>
-
-          <ListItem disablePadding>
             {!props.userName ? (
               <ListItemButton component="a" href="/login">
                 {/* <ListItemText align="center" primary="Log In" /> */}
