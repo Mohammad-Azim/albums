@@ -1,34 +1,51 @@
 import React from "react";
 import "font-awesome/css/font-awesome.min.css";
 
+import { Box, Typography } from "@mui/material";
+
+import FacebookIcon from "@mui/icons-material/Facebook";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import PinterestIcon from "@mui/icons-material/Pinterest";
+import InstagramIcon from "@mui/icons-material/Instagram";
+
 function Footer() {
   return (
     <>
-      <footer
+      <Box
         data-testid="footer"
-        className="fixed bottom-0 bg-opacity-30 p-5 bg-gray-100 w-full	flex justify-center "
+        sx={{
+          position: "fixed",
+          bottom: 0,
+          backgroundColor: "rgba(243, 244, 246,0.3)",
+          width: 1,
+          p: 3,
+          display: "flex",
+          justifyContent: "center",
+        }}
       >
-        <div>
-          <div className="flex justify-between p-1">
+        <Box sx={{ width: "175px" }}>
+          <Box sx={{ display: "flex", justifyContent: "space-between", p: 1 }}>
             <span>
-              <i role="footerIcon" className="fa fa-brands fa-facebook-f"></i>
+              <FacebookIcon></FacebookIcon>
             </span>
             <span>
-              <i role="footerIcon" className="fa fa-brands fa-twitter"></i>
+              <TwitterIcon></TwitterIcon>
             </span>
             <span>
-              <i role="footerIcon" className="fa fa-brands fa-pinterest-p"></i>
+              <PinterestIcon></PinterestIcon>
             </span>
             <span>
-              <i role="footerIcon" className="fa fa-brands fa-instagram"></i>
+              <InstagramIcon></InstagramIcon>
             </span>
-          </div>
-          <div data-testid="copyRight" className="text-sm text-gray-300">
-            {" "}
+          </Box>
+          <Typography
+            data-testid="copyRight"
+            sx={{ fontSize: "1rem", color: "gray", textAlign: "center" }}
+          >
             &copy; with love be moha
-          </div>
-        </div>
-      </footer>
+          </Typography>
+        </Box>
+      </Box>
     </>
   );
 }
