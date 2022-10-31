@@ -1,22 +1,36 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Box } from "@mui/system";
+import { List, ListItem, ListItemText, ListItemButton } from "@mui/material";
 
 export default function MobileMenu(props) {
   return (
-    <section data-testid="MobileMenu" className=" flex lg:hidden justify-end ">
-      <div
-        className="HAMBURGER-ICON space-y-2"
+    <Box
+      sx={{ display: { xs: "flex", lg: "none" } }}
+      justifyContent="end"
+      data-testid="MobileMenu"
+    >
+      <Box
+        height={20}
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-between",
+          width: 30,
+        }}
         onClick={() => props.setIsNavOpen((prev) => !prev)} // toggle isNavOpen state on click
       >
-        <span className="block h-0.5 w-8 animate-pulse bg-gray-600"></span>
-        <span className="block h-0.5 w-8 animate-pulse bg-gray-600"></span>
-        <span className="block h-0.5 w-8 animate-pulse bg-gray-600"></span>
-      </div>
+        <Box height={0.1} bgcolor="gray"></Box>
+        <Box height={0.1} bgcolor="gray"></Box>
+        <Box height={0.1} bgcolor="gray"></Box>
+      </Box>
 
       <div className={props.isNavOpen ? "showMenuNav" : "hideMenuNav"}>
         {" "}
-        <div
-          className="CROSS-ICON absolute top-0 right-0 px-8 py-8"
+        <Box
+          sx={{ position: "absolute", top: "0", right: "0" }}
+          p={8}
+          className="CROSS-ICON"
           onClick={() => props.setIsNavOpen(false)} // change isNavOpen state to false to close the menu
         >
           <svg
@@ -31,38 +45,58 @@ export default function MobileMenu(props) {
             <line x1="18" y1="6" x2="6" y2="18" />
             <line x1="6" y1="6" x2="18" y2="18" />
           </svg>
-        </div>
-        <ul className="MENU-LINK-MOBILE-OPEN flex flex-col items-center justify-between min-h-[250px]">
-          <li className="border-b border-gray-400 my-8 uppercase">
-            <a role="mobileChoises" href="/about">
-              Pregnancy
-            </a>
-          </li>
-          <li className="border-b border-gray-400 my-8 uppercase">
-            <a role="mobileChoises" href="/portfolio">
-              Babies
-            </a>
-          </li>
-          <li className="border-b border-gray-400 my-8 uppercase">
-            <a role="mobileChoises" href="/contact">
-              Family
-            </a>
-          </li>
-          <li className="border-b border-gray-400 my-8 uppercase">
-            <a role="mobileChoises" href="/contact">
-              Bio
-            </a>
-          </li>
-          <li className="border-b border-gray-400 my-8 uppercase">
-            <a role="mobileChoises" href="/contact">
-              Book Session
-            </a>
-          </li>
-          <li className="border-b border-gray-400 my-8 uppercase">
-            {!props.userName ? <Link to="/login">Log In</Link> : props.userName}
-          </li>
-        </ul>
+        </Box>
+        <List>
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemText align="center" primary="Pregnancy" />
+            </ListItemButton>
+          </ListItem>
+
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemText align="center" primary="Babies" />
+            </ListItemButton>
+          </ListItem>
+
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemText align="center" primary="Family" />
+            </ListItemButton>
+          </ListItem>
+
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemText align="center" primary="Bio" />
+            </ListItemButton>
+          </ListItem>
+
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemText align="center" primary="Book Session" />
+            </ListItemButton>
+          </ListItem>
+
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemText align="center" primary="Bio" />
+            </ListItemButton>
+          </ListItem>
+
+          <ListItem disablePadding>
+            {!props.userName ? (
+              <ListItemButton component="a" href="/login">
+                {/* <ListItemText align="center" primary="Log In" /> */}
+                <Link to="/login">Log In</Link>
+              </ListItemButton>
+            ) : (
+              <ListItemButton component="a" href="#">
+                <ListItemText align="center" primary={props.userName} />
+              </ListItemButton>
+            )}
+          </ListItem>
+        </List>
       </div>
-    </section>
+    </Box>
   );
 }
