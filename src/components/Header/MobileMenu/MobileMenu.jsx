@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Box } from "@mui/system";
 import { List, ListItem, ListItemText, ListItemButton } from "@mui/material";
 
-export default function MobileMenu(props) {
+export default function MobileMenu({ setIsNavOpen, isNavOpen, userName }) {
   return (
     <Box
       sx={{ display: { xs: "flex", lg: "none" } }}
@@ -18,20 +18,20 @@ export default function MobileMenu(props) {
           justifyContent: "space-between",
           width: 30,
         }}
-        onClick={() => props.setIsNavOpen((prev) => !prev)} // toggle isNavOpen state on click
+        onClick={() => setIsNavOpen((prev) => !prev)} // toggle isNavOpen state on click
       >
         <Box height={0.1} bgcolor="gray"></Box>
         <Box height={0.1} bgcolor="gray"></Box>
         <Box height={0.1} bgcolor="gray"></Box>
       </Box>
 
-      <div className={props.isNavOpen ? "showMenuNav" : "hideMenuNav"}>
+      <div className={isNavOpen ? "showMenuNav" : "hideMenuNav"}>
         {" "}
         <Box
           sx={{ position: "absolute", top: "0", right: "0" }}
           p={8}
           className="CROSS-ICON"
-          onClick={() => props.setIsNavOpen(false)} // change isNavOpen state to false to close the menu
+          onClick={() => setIsNavOpen(false)} // change isNavOpen state to false to close the menu
         >
           <svg
             className="h-8 w-8 text-gray-600"
@@ -78,14 +78,14 @@ export default function MobileMenu(props) {
           </ListItem>
 
           <ListItem disablePadding>
-            {!props.userName ? (
+            {!userName ? (
               <ListItemButton component="a" href="/login">
-                {/* <ListItemText align="center" primary="Log In" /> */}
-                <Link to="/login">Log In</Link>
+                <ListItemText align="center" primary="Log In" />
+                {/* <Link to="/login">Log In</Link> */}
               </ListItemButton>
             ) : (
               <ListItemButton component="a" href="#">
-                <ListItemText align="center" primary={props.userName} />
+                <ListItemText align="center" primary={userName} />
               </ListItemButton>
             )}
           </ListItem>

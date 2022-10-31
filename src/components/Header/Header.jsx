@@ -1,12 +1,14 @@
 import React from "react";
 import { useState } from "react"; // import state
 import { Link } from "react-router-dom";
-import MobileMenu from "./MobileMenu/MobileMenu";
+
 import { Typography, Box } from "@mui/material";
+import { faAlignJustify } from "@fortawesome/free-solid-svg-icons";
 
 import "./Header.css";
-import { faAlignJustify } from "@fortawesome/free-solid-svg-icons";
-function Header(props) {
+import MobileMenu from "./MobileMenu/MobileMenu";
+
+function Header() {
   const [isNavOpen, setIsNavOpen] = useState(false); // initiate isNavOpen state with false
   const userName = localStorage.getItem("userEmail");
   return (

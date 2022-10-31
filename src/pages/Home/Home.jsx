@@ -5,7 +5,7 @@ import Body from "../../components/Body/Body";
 import { Suspense } from "react";
 import { CircularProgress, Box } from "@mui/material";
 
-function Home(props) {
+function Home() {
   return (
     <>
       <Header />
