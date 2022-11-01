@@ -42,7 +42,7 @@ function Footer() {
             data-testid="copyRight"
             sx={{ fontSize: "1rem", color: "gray", textAlign: "center" }}
           >
-            &copy; with love be moha
+            &copy; with love by moha
           </Typography>
         </Box>
       </Box>
